@@ -12,46 +12,49 @@ import javax.swing.JOptionPane;
  *
  * @author parisa
  */
-public class Character {
+public class Character 
+{
     private int choice;
     private int sum;
     private String nameChar;
     private String gender;
-    
+    private int strength;
+    private int dexterity;
+    private int constitution;
+    private int Intelligence;
+    private int wisdom;
+    private int charisma;
     
     public Character(){
     }
     
-    public void createCharacter(int choice, String nameChar, String gender)
+    
+    public int chooseMethod1()
     {
-        this.nameChar = nameChar;
-        this.gender = gender;
-        this.choice = choice;
-
-        if (choice == 1)
-        {           
-            Random rand = new Random();
-            for(int a = 0; a<4; a++)
-            {                
-                int i = rand.nextInt(5)+1;
-                sum = sum + i;               
-                if (sum < 3 & sum > 18)
-                {
-                    continue;
-                }
-            }
+        Random rand = new Random();
+        for(int a = 0; a<4; a++)
+        {                
+            int i = rand.nextInt(5)+1;
+            sum = sum + i;               
+            if (sum < 3 & sum > 18)
+            {
+                continue;
+            }                
         }
-        if (choice == 2)
+        
+        return sum;
+    }
+    
+    public int chooseMethod2()
+    {
+        sum = 0;
+        while (sum<3 & sum> 18)
         {
-            int sum = 0;
-            
-            while (sum<3 & sum> 18)
+            for(int s = 0; s<7; s++)
             {
                 Random rand = new Random();
                 int[] number = new int[5];
-                //int[] maxArray = new int[3];
-                //ArrayList<Integer> number = new ArrayList<Integer> ();
-
+                
                 for (int b = 0; b<6; b++)
                 {
                     int i = rand.nextInt(5)+1;
@@ -73,15 +76,20 @@ public class Character {
                     //maxArray[c] = max_num;
                     number[e] = 0;
                     sum = sum + max_num;
+                
                 }
-            }            
-        }
-        
-        if (choice == 3)
-        {
-            int sum = 0;
+            }
+        }                    
+        return sum;
+    }
+    
+    public int chooseMethod3()
+    {
+        sum = 0;
             
-            while (sum<4 & sum> 21)
+        while (sum<4 & sum> 21)
+        {
+            for(int s = 0; s<7; s++)
             {
                 Random rand = new Random();
                 int[] number = new int[5];
@@ -107,7 +115,7 @@ public class Character {
                         }                    
                     }
                     number[e] = 0;
-                    
+
                     //maxArray[c] = max_num;
                     Random plus = new Random();
                     int[] plusNumber = new int[3];                    
@@ -116,7 +124,7 @@ public class Character {
                         int j = plus.nextInt(3)+1;
                         plusNumber[f] = j;
                     }
-                    
+
                     int maxPlus = plusNumber[0];
                     for(int d = 1; d<number.length; d++)
                     {
@@ -127,9 +135,48 @@ public class Character {
                     }                   
                     sum = sum + max_num+ maxPlus;
                 }
-            }            
-            
+            }
         }
+        return sum;        
     }
     
+    public void createCharacter(int choice, String nameChar, String gender)
+    {
+        this.nameChar = nameChar;
+        this.gender = gender;
+        this.choice = choice;
+
+        if (choice == 1)
+        {   
+            this.strength = chooseMethod1();
+            this.dexterity = chooseMethod1();
+            this.constitution = chooseMethod1();
+            this.Intelligence = chooseMethod1();
+            this.wisdom = chooseMethod1();
+            this.charisma = chooseMethod1();  
+        }
+        if (choice == 2)
+        {
+            this.strength = chooseMethod2();
+            this.dexterity = chooseMethod2();
+            this.constitution = chooseMethod2();
+            this.Intelligence = chooseMethod2();
+            this.wisdom = chooseMethod2();
+            this.charisma = chooseMethod2(); 
+        }
+        
+        if (choice == 3)
+        {
+            this.strength = chooseMethod3();
+            this.dexterity = chooseMethod3();
+            this.constitution = chooseMethod3();
+            this.Intelligence = chooseMethod3();
+            this.wisdom = chooseMethod3();
+            this.charisma = chooseMethod3();             
+            
+        }  
+    }
+    public String displayScores(){
+        
+    }
 }
