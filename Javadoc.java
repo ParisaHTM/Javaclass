@@ -27,7 +27,7 @@ public class Javadoc {
                 +"1. Create user account\n"
                 +"2. Load user account\n"
                 +"3. Create character\n"
-                +"4. Display character\n "
+                +"4. Display character\n"
                 +"5. Save character\n"
                 +"6. Load character\n"
                 +"7. Exit");
@@ -64,20 +64,36 @@ public class Javadoc {
             {     // create character
                 String name = JOptionPane.showInputDialog("Please insert your character name.");
                 String gender = JOptionPane.showInputDialog("Please select character gender(M or F).");
-                String menu_2 = JOptionPane.showInputDialog("Please select one of this method for assigning ability scores"+"\n"
-                    + "1 - Method 1 = Sum of 3d6. Min/Max = 3/18"+ "\n"
-                    + "2 - Method 2 = Sum of best 3 of 5d6. Min/Max = 3/18"+"\n"
-                    + "3 - Method 3 = Sum of best 3 of 5d6 plus 1d3. Min/Max = 4/21"+"\n");
-                Scanner num = new Scanner(System.in);
-                int choiceNum = num.nextInt();
-                Character charc = new Character();
-                charc.createCharacter(choiceNum , name, gender);
+                
+                int option = 0;
+                while (option == 0)
+                {
+                    String menu_2 = JOptionPane.showInputDialog("Please select one of this method for assigning ability scores"+"\n"
+                        + "1 - Method 1 = Sum of 3d6. Min/Max = 3/18"+ "\n"
+                        + "2 - Method 2 = Sum of best 3 of 5d6. Min/Max = 3/18"+"\n"
+                        + "3 - Method 3 = Sum of best 3 of 5d6 plus 1d3. Min/Max = 4/21"+"\n");
+                    //Scanner num = new Scanner(System.in);
+                    //int choiceNum = num.nextInt();
+                    int choiceNum = Integer.parseInt(menu_2);
+                    Character charc = new Character();
+                    charc.createCharacter(choiceNum , name, gender);
+                    String agree = JOptionPane.showInputDialog("Are you satisfied with scores?\n1- Yes \n2- No");
+                    int choiceAgree = Integer.parseInt(agree);
+                    option++;
+                    if (choiceAgree == 2)
+                    {
+                        option = 0;
+                        continue;
+                    }
+                }
+            continue;
             }
-
+            
+            if (choice == 4){
+                    
+            }
         }
-
     }
-
 }
 
 
