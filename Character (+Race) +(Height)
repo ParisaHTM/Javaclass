@@ -261,7 +261,11 @@ public class Character
         }
          return height;
     }
-       
+    
+    public double generateAge()//KK Creating a method to auto generate age based on race selected 
+    {
+    
+    }
            
        
       
