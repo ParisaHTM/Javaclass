@@ -84,6 +84,21 @@ public class Javadoc {
                 //charc.createCharacter(choiceNum , name, gender, race);  //Commented by Ali
                 
             }
+            if (choice == 4){
+                    
+            }
+            if (choice == 5){
+            
+            }
+            if (choice == 6)
+            {
+                //Load Character
+            }
+            if (choice == 7)
+            {
+                // Exit
+                break;
+            }
 
         }
 
