@@ -92,6 +92,18 @@ public class Javadoc {
             if (choice == 4){
                     
             }
+            if (choice == 5){
+            
+            }
+            if (choice == 6)
+            {
+                //Load Character
+            }
+            if (choice == 7)
+            {
+                // Exit
+                break;
+            }
         }
     }
 }
