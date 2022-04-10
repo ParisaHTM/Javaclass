@@ -37,14 +37,14 @@ public class Javadoc {
             //loop over menu 
             if (choice == 1) 
             {
-                String userName = JOptionPane.showInputDialog("Please enter your user name.");
+                String userName = JOptionPane.showInputDialog("Please enter your user name:");
                 File userFile = new File(path + userName + ".txt");
                 if (userFile.exists()) {
-                    System.out.println("This user name already exists. Please choose another user name");
+                    System.out.println("This user name already exists. Please choose another user name:");
                     continue;
                 }
-                String password = JOptionPane.showInputDialog("Please, enter your password.");
-                String emailAddress = JOptionPane.showInputDialog("Please enter your email address.");
+                String password = JOptionPane.showInputDialog("Please, enter your password:");
+                String emailAddress = JOptionPane.showInputDialog("Please enter your email address:");
                 
                 User user = new User(userName, password, emailAddress);
                 user.saveUser(path);
@@ -53,7 +53,7 @@ public class Javadoc {
 
             if (choice == 2) 
             {        // load user account
-                String username = JOptionPane.showInputDialog("Please enter your user name.");
+                String username = JOptionPane.showInputDialog("Please enter your user name:");
                 System.out.println("User = " + username);
                 User user = new User();
                 user.loadUser(username, path);
@@ -62,8 +62,8 @@ public class Javadoc {
 
             if (choice == 3) 
             {     // create character
-                String name = JOptionPane.showInputDialog("Please insert your character name.");
-                String gender = JOptionPane.showInputDialog("Please select character gender(M or F).");
+                String name = JOptionPane.showInputDialog("Please insert your character name:");
+                String gender = JOptionPane.showInputDialog("Please select character gender(M or F):");
                 String menu_2 = JOptionPane.showInputDialog("Please select one of this method for assigning ability scores"+"\n"
                     + "1 - Method 1 = Sum of 3d6. Min/Max = 3/18"+ "\n"
                     + "2 - Method 2 = Sum of best 3 of 5d6. Min/Max = 3/18"+"\n"
