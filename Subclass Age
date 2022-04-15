@@ -1,0 +1,39 @@
+import java.util.Random;
+/**
+ *
+ * @author kkaisei
+ */
+public class Age extends Race
+{
+    public double generateAge()
+    {
+    
+        double age = 0;
+        Random randomAge = new Random();
+        
+        switch(race)
+        {
+            case 1 ->
+            {
+               age = randomAge.nextDouble(15,30);
+            }
+            case 2 ->
+            {
+               age = randomAge.nextDouble(80,180);
+            }
+            case 3 ->
+            {
+               age = randomAge.nextDouble(40,70);
+            }  
+            case 4 ->
+            {
+               age = randomAge.nextDouble(30,60);
+            }
+            case 5 ->
+            {
+               age = randomAge.nextDouble(30,50);
+            }
+        }
+        return age;   
+    }
+}
