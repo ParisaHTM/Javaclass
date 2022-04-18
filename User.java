@@ -28,28 +28,29 @@ public class User {
     }
     
     //setting up the saveUser method
-    public void saveUser(String path) throws FileNotFoundException  //save user in the path that user uses in main class
+    public void saveUser(String path) throws FileNotFoundException  //save user in the path that user uses in main class and setting up an exception error
     {
-        PrintWriter outputFile = new PrintWriter(path + this.username + ".txt");
-        outputFile.write(this.username + "\n");
-        outputFile.write(this.password + "\n");
-        outputFile.write(this.emailAddress + "\n");
-        outputFile.close();
+        PrintWriter outputFile = new PrintWriter(path + this.username + ".txt");//creating a new pritwriter with the the name outputFile and names it with the path and username as a text file
+        outputFile.write(this.username + "\n");// writes the username in the outputFile text file
+        outputFile.write(this.password + "\n");// writes the password in the outputFile text file
+        outputFile.write(this.emailAddress + "\n");// writes the emailAddress in the outputFile text file
+        outputFile.close();//closing the outputFile so that the inforamtion written is saved
     }
     
     //setting up the loadUser method
-    public String[] loadUser(String username, String path) throws FileNotFoundException // load user from that same path that is saved
+    public String[] loadUser(String username, String path) throws FileNotFoundException // load user from that same path that is saved and setting up an exeption error if file is not found
     {        
-        String[] Information = new String[3]; //creating a new array
+        String[] Information = new String[2]; //creating a new array
         this.username = username;
-        String inFile = path + username +".txt";               
-        File inputFile = new File(inFile);
-        Scanner inputRead = new Scanner(inputFile);
+        String inFile = path + username +".txt"; // creating an inFile variable to read in by concatenating the String path and String username obtained from the user          
+        File inputFile = new File(inFile);//creating a new inputFile and passing in the inFile in the constructor
+        Scanner inputRead = new Scanner(inputFile);// associating the inputFile variable with the scanner
         inputRead.nextLine(); //username
         this.Information[0] = inputRead.nextLine(); //password
         this.Information[1] = inputRead.nextLine(); //email
         
         return this.Information;
+        inputRead.close();
     }
     
     // Setting up the setters and getters
