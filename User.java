@@ -45,9 +45,9 @@ public class User {
         String inFile = path + username +".txt"; // creating an inFile variable to read in by concatenating the String path and String username obtained from the user          
         File inputFile = new File(inFile);//creating a new inputFile and passing in the inFile in the constructor
         Scanner inputRead = new Scanner(inputFile);// associating the inputFile variable with the scanner
-        inputRead.nextLine(); //username
-        this.Information[0] = inputRead.nextLine(); //password
-        this.Information[1] = inputRead.nextLine(); //email
+        this.information[0] = inputRead.nextLine(); //username
+        this.Information[1] = inputRead.nextLine(); //password
+        this.Information[2] = inputRead.nextLine(); //email
         
         return this.Information;
         inputRead.close();
